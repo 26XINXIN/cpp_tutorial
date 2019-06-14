@@ -53,4 +53,6 @@ int main(){
     cout << "sqrt(d) = " << sqrt(d) << endl;
     cout << "exp(d) = " << exp(d) << endl;
     // etc
+
+    return 0;
 }

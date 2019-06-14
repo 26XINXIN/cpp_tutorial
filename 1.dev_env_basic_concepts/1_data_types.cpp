@@ -66,5 +66,11 @@ int main(){
     // escape characters. E.g.:
     cout << "hello\tworld\n\n";
     
-    
+    // input, output
+    cin >> a >> b;
+    cout << "your a = " << a << ", b = " << b << endl;
+    scanf("%d %d", &a, &b);
+    printf("your a = %d, b = %d\n", a, b);
+
+    return 0;
 }
