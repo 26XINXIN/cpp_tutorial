@@ -7,11 +7,9 @@
             "args": [
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "${fileDirname}/${fileBasenameNoExtension}",
                 "-g",
                 "-Wall",
-                "-static-libgcc",
-                "--target=x86_64-w64-mingw",
                 "-std=c++11"
             ],
             "type": "process",
