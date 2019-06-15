@@ -2,9 +2,10 @@
  * data types
  */
 
-#include <iostream>
-#include <cstdlib>
-#include <cstring>
+#include <iostream> // cin, cout
+#include <cstdlib> // endl
+#include <cstring> // string
+#include <cstdio> // scanf, printf
 
 using namespace std;
 

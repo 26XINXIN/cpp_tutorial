@@ -1,0 +1,115 @@
+# C++基本语法
+
+C++基本语法包括赋值语句，分支结构，循环结构，函数体等。
+
+## 分支结构
+
+分支结构是用if开头的关键字进行条件判断，在不同情况下，运行不同的代码。基本语句结构：
+
+```cpp
+if (condition) {
+    // do something;
+} else {
+    // do something else;
+}
+```
+
+如果括号中的条件成立，则运行接下来花括号中的代码，否则运行`else`后面花括号中的代码。其中`else`可以舍弃，即如果条件不满足则不运行任何代码。
+
+条件语句一般是个布尔类型变量或布尔表达式。在C++中，布尔类型与整数类型可以互相转换，因此条件也可以是整数或者浮点数。当用整数或浮点数时，条件不成立当且仅当条件的值为0。
+
+如果情况有多种，一般有两种解决方式：1、利用`else if`；2、利用`switch`
+
+1、`else if`
+
+```cpp
+if (condition1) {
+    // do something;
+} else if (condition2) {
+    // do something else;
+} else if (condition3) {
+    // do another something else;
+}
+```
+
+`else if`可以无限连接。
+
+2、`switch`
+
+开关语句，一般用于区分一个变量的多种不同取值。
+
+```cpp
+switch (month) {
+    case 1: cout << "January" << endl;
+            break;
+    case 2: cout << "Faburary" << endl;
+            break;
+    ...
+    default: cout << "default output" << endl;
+}
+```
+
+## 循环结构
+
+循环结构可以让程序重复运行某段代码直到不符合循环条件。循环结构有for循环和while循环两种。
+
+### for循环
+
+```cpp
+int sum = 0;
+for (int i = 1; i <= 10; i++){
+    sum += i;
+}
+```
+
+for后面的括号有分号分割的三个语句，分别是初始化语句，终止条件和每次运行完成后的操作。
+
+上述代码可以求和1到10的整数。
+
+### while循环
+
+上面的代码可以等价转写为while循环语句
+
+```cpp
+int sum = 0, i = 1; // 初始化语句
+while (i <= 10) { // 终止条件判断
+    sum += i;
+    i++; // 循环结束后的操作
+}
+```
+
+或者：
+
+```cpp
+int sum = 0; i = 1;
+do {
+    sum += 1;
+    i ++;
+} while (i <= 10);
+```
+
+## 函数
+
+函数是根据特定参数产生特定返回值的代码块。一个例子是加法函数，可以返回两个值的和。例如：`int result = sum(1, 3);`。
+那么result将会等于4。其中1和3都是函数的参数，sum是函数的名字。那么我们需要编写sum函数里面具体的代码
+
+```cpp
+int sum(int a, int b) {
+    int result = a + b;
+    return result;
+}
+```
+
+函数名前面是返回值类型，括号中是参数，每个参数都有对应的数据类型和变量名。return语句能够把值返回到函数外层，返回的数据必须和生命的函数数据类型一致。
+
+函数可以带参数也可以不带参数。返回值也可以为空。返回值为空时函数类型是void。
+
+```cpp
+void print_hello_world() {
+    cout << "hello world!" << endl;
+}
+```
+
+函数经常能起到让代码更好编写以及更好读的作用。另外代码也可以被重复调用，因此可以避免重复编写相同代码。
+
+函数声明必须在函数调用之前。
