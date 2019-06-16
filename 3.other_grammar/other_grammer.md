@@ -221,18 +221,21 @@ words = split("hello world", '');
 
 这个功能经常用于英文文本的分词。
 
-* 子串匹配：给定一个字符串S和字符串T，函数返回T第一次在S中出现的位置的指针，如果没有S中不包含T，返回NULL
+* 子串匹配：给定一个字符串S和字符串T，函数返回T第一次在S中出现的位置的脚标，如果没有S中不包含T，返回-1
 
 ```cpp
 // 函数声明
-// char * find_sub_str(char * S, char * T);
+// int find_sub_str(char * S, char * T);
 
 char _S[] = "A quick fox jumps over a lazy dog.";
 char _T[] = "fox";
 char * S = _S;
 char * T = _T;
 
-fox = find_sub_str(S, T); // fox指向S中fox的开头位置。
+fox = find_sub_str(S, T); // fox指向S中fox的开头位置，返回8。
+
+strcpy(_T, "cat");
+cat = find_sub_str(S, T); // "cat"不在字符串中，返回-1。
 ```
 
 **指针和引用，包括一些基本数据结构**
