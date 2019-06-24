@@ -15,7 +15,6 @@ class LinkedNode{
 int size(LinkedNode &linked_list){
     if (linked_list.next == NULL) return 0;
 
-
     LinkedNode *it = &linked_list;
     int _size = 0;
     while (it->next != NULL){ //(*it).next
