@@ -25,9 +25,7 @@ int size(LinkedNode &linked_list){
 }
 
 
-
-/*
-void insert(LinkedNode &linked_list, int position, LinkedNode node){
+void insert(LinkedNode &linked_list, int position, LinkedNode & node){
     int len = size(linked_list);
     if (len < position)
     {
@@ -45,13 +43,14 @@ void insert(LinkedNode &linked_list, int position, LinkedNode node){
 
 LinkedNode & remove(LinkedNode &linked_list, int position){
     int len = size(linked_list);
+    if (len < position)
     {
         cout << "invalid position: size of linked_list is " << len;
         cout << " and insertion position is " << position << endl;
-        return;
+        return linked_list;
     }
 
-    LinkedNode *it = &LinkedNode;
+    LinkedNode *it = &linked_list;
     for (int i = 0; i < position; i++){
         it = it->next;
     }
@@ -62,6 +61,7 @@ LinkedNode & remove(LinkedNode &linked_list, int position){
 
 void update(LinkedNode &linked_list, int position, int data){
     int len = size(linked_list);
+    if (len < position)
     {
         cout << "invalid position: size of linked_list is " << len;
         cout << " and insertion position is " << position << endl;
@@ -69,18 +69,69 @@ void update(LinkedNode &linked_list, int position, int data){
     }
 
     LinkedNode *it = &linked_list;
-    
-    
+    for (int i = 0; i < position; i++){
+        it = it->next;
+    }
+    it->next->data = data;
 }
 
-int get_data(LinkedNode &linked_list, int position);
-*/
+int get_data(LinkedNode &linked_list, int position){
+    int len = size(linked_list);
+    if (len < position)
+    {
+        cout << "invalid position: size of linked_list is " << len;
+        cout << " and insertion position is " << position << endl;
+        return -1;
+    }
+
+    LinkedNode *it = &linked_list;
+    for (int i = 0; i < position; i++){
+        it = it->next;
+    }
+    return it->next->data;
+}
+
+void print_linked_list(const LinkedNode & linked_list){
+    const LinkedNode * it = &linked_list;
+    cout << "begin";
+    while (it->next){
+        it = it->next;
+        cout << " -> " << it->data;
+    }
+    cout << " -> end" << endl;
+}
 
 int main(){
+    // initialize linked list
     LinkedNode l(-1);
     LinkedNode node1(1), node2(2), node3(3);
     l.next = &node1;
     node1.next = &node2;
     node2.next = &node3;
-    cout << size(l) << endl;
+    print_linked_list(l);
+    
+    // test size
+    cout << "size of l = " << size(l) << endl;
+    
+    // test insert
+    LinkedNode new_node(6);
+    insert(l, 2, new_node);
+    cout << "inserted new linked node" << endl;
+    print_linked_list(l);
+
+    // test remove
+    remove(l, 1);
+    cout << "removed linked node" << endl;
+    print_linked_list(l);
+
+    // test update
+    update(l, 1, 2);
+    cout << "updated data" << endl;
+    print_linked_list(l);
+
+    // test get_data
+    int value = get_data(l, 2);
+    cout << "data at position 2 is: " << value << endl;
+
+    return 0;
 }
